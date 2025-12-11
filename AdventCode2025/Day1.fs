@@ -35,4 +35,6 @@ let operateSafe dialPosition (instruction:string) =
 
 let openSafe (instructions: string list) =
     instructions
-    |> List.fold operateSafe 50
+    |> List.scan operateSafe 50
+    |> List.filter (fun dialPosition -> dialPosition = 0)
+    |> List.length

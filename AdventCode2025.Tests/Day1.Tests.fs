@@ -63,6 +63,6 @@ let ``Rotate R51`` () =
 
 [<Fact>]
 let ``Open safe with multiple instructions`` () =
-    let instructions = [ "R10"; "L20"; "R30"; "L40" ]
+    let instructions = [ "L68"; "L30"; "R48"; "L5"; "R60"; "L55"; "L1"; "L99"; "R14"; "L82" ]
     let finalPosition = openSafe instructions
-    Assert.Equal(30, finalPosition)
+    Assert.Equal(3, finalPosition)
