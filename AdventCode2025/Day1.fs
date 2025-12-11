@@ -14,14 +14,14 @@ let (|Instruction|_|) (str: string) =
     | _ -> None
 
 let increment position n = 
-    let newPosition = position + n
+    let newPosition = position + (n % 100)
     if newPosition >= 100 then
         newPosition - 100
     else
         newPosition
 
 let decrement position n = 
-    let newPosition = position - n
+    let newPosition = position - (n % 100)
     if newPosition < 0 then
         100 + newPosition
     else
