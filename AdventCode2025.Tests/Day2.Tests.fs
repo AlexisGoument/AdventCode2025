@@ -65,3 +65,16 @@ let ``Sum all invalid IDs in ranges``() =
     ``given range is`` "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
     |> sumAllInvalidIdsInRanges 
     |> ``should return sum `` 1227775554UL
+
+[<Fact>]
+let ``getInvalidIdsInRange_Part2 11-22``() =
+    ``given range is`` "11-22"
+    |> getInvalidIdsInRange_Part2
+    |> ``should return `` ["11"; "22"]
+
+
+[<Fact>]
+let ``GetInvalidIdsInRange_Part2 95-115``() =
+    ``given range is`` "95-115"
+    |> getInvalidIdsInRange_Part2
+    |> ``should return `` ["99"; "111"]

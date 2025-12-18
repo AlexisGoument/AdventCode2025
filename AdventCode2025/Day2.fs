@@ -26,13 +26,40 @@ let isInvalidId (id : string) =
                 loop (index + 1)
     loop 1
 
+    
+let isInvalidId_Part2 (id : string) =
+    let isInvalidPattern (pattern : string) =
+        let split = id.Split pattern
+        Array.forall (fun part -> part = "") split
+    
+    let rec loop index =
+        if index > id.Length / 2 then
+            false
+        else
+            if id.Substring(0, index) |> isInvalidPattern then
+                true
+            else
+                loop (index + 1)
+    loop 1
+
 let getInvalidIdsInRange (range : string) =
     getAllIdsInRange range
     |> List.filter isInvalidId
+
+let getInvalidIdsInRange_Part2 (range : string) =
+    getAllIdsInRange range
+    |> List.filter isInvalidId_Part2
 
 let sumAllInvalidIdsInRanges (ranges : string) =
     ranges.Split(',')
     |> Array.map (fun range -> 
         getInvalidIdsInRange range
+        |> List.sumBy uint64)
+    |> Array.sum
+
+let sumAllInvalidIdsInRanges_Part2 (ranges : string) =
+    ranges.Split(',')
+    |> Array.map (fun range -> 
+        getInvalidIdsInRange_Part2 range
         |> List.sumBy uint64)
     |> Array.sum
