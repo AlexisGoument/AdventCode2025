@@ -5,6 +5,7 @@
     <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Day3.Tests.fs" />
     <Compile Include="Day2.Tests.fs" />
     <Compile Include="Day1.Tests.fs" />
     <Compile Include="Program.fs" />

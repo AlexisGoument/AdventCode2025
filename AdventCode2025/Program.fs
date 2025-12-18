@@ -13,4 +13,11 @@ let day2() =
     Day2.sumAllInvalidIdsInRanges ranges |> printfn "Solution Day2 part1: %d"
     Day2.sumAllInvalidIdsInRanges_Part2 ranges |> printfn "Solution Day2 part2: %d"
 
-day2()
+let day3() =
+    let banks = 
+        File.ReadAllLines("AdventCode2025/Day3_Banks.txt")
+        |> Array.toList
+
+    Day3.findTotalOutputJoltage banks |> printfn "Solution Day3 part1: %d"
+
+day3()
